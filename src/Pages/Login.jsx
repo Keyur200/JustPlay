@@ -20,6 +20,7 @@ const Login = () => {
         } else {
             navigate('/')
             setUser(data.user)
+            window.location.reload()
             toast.success("Login successfully.")
         }
     }

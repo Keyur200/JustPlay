@@ -53,6 +53,7 @@ const VideoDetail = () => {
             setText('')
             getcomments()
             getVideo()
+            window.location.reload()
         }
     }
 
