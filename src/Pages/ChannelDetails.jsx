@@ -14,7 +14,7 @@ const ChannelDetails = () => {
     const [bar, setBar] = useState(false)
     const navigate = useNavigate()
     const getData = async () => {
-        await axios.get(`http://localhost:5000/auth/channeldetails/${id}`, { withCredentials: true })
+        await axios.get(`https://just-play-api-eight.vercel.app/auth/channeldetails/${id}`, { withCredentials: true })
             .then(({ data }) => {
                 setUserdata(data)
                 console.log(data)
@@ -22,7 +22,7 @@ const ChannelDetails = () => {
     }
 
     const subscribe = async (id) => {
-        await axios.put(`http://localhost:5000/auth/subscribe/${id}`, {}, { withCredentials: true })
+        await axios.put(`https://just-play-api-eight.vercel.app/auth/subscribe/${id}`, {}, { withCredentials: true })
             .then(({ data }) => {
                 if (data.error) {
                     toast.error(data.error)
@@ -35,7 +35,7 @@ const ChannelDetails = () => {
     }
 
     const unsubscribe = async (id) => {
-        await axios.put(`http://localhost:5000/auth/unsubscribe/${id}`, {}, { withCredentials: true })
+        await axios.put(`https://just-play-api-eight.vercel.app/auth/unsubscribe/${id}`, {}, { withCredentials: true })
             .then(({ data }) => {
                 if (data.error) {
                     toast.error(data.error)
@@ -48,14 +48,14 @@ const ChannelDetails = () => {
     }
 
     const getVideos = async() => {
-        await axios.get(`http://localhost:5000/auth/channelvideo/${id}`, {withCredentials:true})
+        await axios.get(`https://just-play-api-eight.vercel.app/auth/channelvideo/${id}`, {withCredentials:true})
         .then(({data})=>{
             setVideos(data)
         })
     }
 
     const handleView = async (id) => {
-        await axios.put(`http://localhost:5000/view/${id}`, { id }, { withCredentials: true })
+        await axios.put(`https://just-play-api-eight.vercel.app/view/${id}`, { id }, { withCredentials: true })
           .then(({ data }) => {
             setVideos(data)
             getVideos()

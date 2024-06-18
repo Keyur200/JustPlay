@@ -17,7 +17,7 @@ const CreateVideo = () => {
     const [category,setCategory] = useState()
 
     const getCategories = async () => {
-        axios.get('http://localhost:5000/allcategory', { withCredentials: true })
+        axios.get('https://just-play-api-eight.vercel.app/allcategory', { withCredentials: true })
             .then(({ data }) => {
                 setCategories(data)
             })
@@ -65,7 +65,7 @@ const CreateVideo = () => {
 
             const thumb = await uploadThumb()
             const video = await uploadVideo()
-            const {data} = await axios.post('http://localhost:5000/uploadvideo', {title,desc,category,thumb,video}, { headers: {"Content-Type" :"application/json"}, withCredentials:true})
+            const {data} = await axios.post('https://just-play-api-eight.vercel.app/uploadvideo', {title,desc,category,thumb,video}, { headers: {"Content-Type" :"application/json"}, withCredentials:true})
             if(data){
                 toast.success(`${data?.videos?.title} created.`)
                 navigate('/')

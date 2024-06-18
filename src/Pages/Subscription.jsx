@@ -15,7 +15,7 @@ const Subscription = () => {
   const navigate = useNavigate()
   const getChannels = async () => {
     setLoading(true)
-    await axios.get('http://localhost:5000/auth/subscribedchannel', { withCredentials: true })
+    await axios.get('https://just-play-api-eight.vercel.app/auth/subscribedchannel', { withCredentials: true })
       .then(({ data }) => {
         setUserdata(data)
         setLoading(false)

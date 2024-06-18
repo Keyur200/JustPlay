@@ -15,7 +15,7 @@ const Trending = () => {
 
     const getVideos = async() => {
       setLoading(true)
-      await axios.get('http://localhost:5000/trending')
+      await axios.get('https://just-play-api-eight.vercel.app/trending')
       .then(({data})=>{
         setVideos(data)
         setLoading(false)
@@ -24,7 +24,7 @@ const Trending = () => {
     }
 
     const handleView =async (id) => {
-      await axios.put(`http://localhost:5000/view/${id}`, {id} , {withCredentials:true})
+      await axios.put(`https://just-play-api-eight.vercel.app/view/${id}`, {id} , {withCredentials:true})
       .then(({data})=>{
         setVideos(data)
         getVideos()

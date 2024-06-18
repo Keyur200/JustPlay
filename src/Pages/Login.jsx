@@ -14,7 +14,7 @@ const Login = () => {
     const [bar, setBar] = useState(false)
     const handleLogin = async (e) => {
         e.preventDefault()
-        const { data } = await axios.post('http://localhost:5000/auth/login', { email, pass }, { withCredentials: true })
+        const { data } = await axios.post('https://just-play-api-eight.vercel.app/auth/login', { email, pass }, { withCredentials: true })
         if (data.error) {
             toast.error(data.error)
         } else {

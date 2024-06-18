@@ -35,7 +35,7 @@ const Register = () => {
         e.preventDefault()
         try {
             const pic = await uploadFile()
-            const { data } = await axios.post('http://localhost:5000/auth/register', {name,email,pass, pic}, { headers: {"Content-Type" :"application/json"}, withCredentials:true})
+            const { data } = await axios.post('https://just-play-api-eight.vercel.app/auth/register', {name,email,pass, pic}, { headers: {"Content-Type" :"application/json"}, withCredentials:true})
             if (data.error) {
                 toast.error(data.error)
             }else{

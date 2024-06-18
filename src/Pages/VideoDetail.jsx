@@ -28,7 +28,7 @@ const VideoDetail = () => {
 
     const getVideo = async () => {
         setLoading(true)
-        await axios.get(`http://localhost:5000/videodetail/${slug}`)
+        await axios.get(`https://just-play-api-eight.vercel.app/videodetail/${slug}`)
             .then(({ data }) => {
                 setvideo(data)
                 setLoading(false)
@@ -36,7 +36,7 @@ const VideoDetail = () => {
     }
 
     const getcomments = async () => {
-        await axios.get(`http://localhost:5000/getcomment/${slug}`, { withCredentials: true })
+        await axios.get(`https://just-play-api-eight.vercel.app/getcomment/${slug}`, { withCredentials: true })
             .then(({ data }) => {
                 setComment(data)
                 setShow(true)
@@ -45,7 +45,7 @@ const VideoDetail = () => {
 
     const handleSubmit = async (e) => {
         e?.preventDefault()
-        const { data } = await axios.post('http://localhost:5000/addcomment', {
+        const { data } = await axios.post('https://just-play-api-eight.vercel.app/addcomment', {
             text, vid: slug
         }, { withCredentials: true })
         if (data) {
@@ -58,7 +58,7 @@ const VideoDetail = () => {
 
     const getVideos = async () => {
         setLoading2(true)
-        await axios.get('http://localhost:5000/getvideos')
+        await axios.get('https://just-play-api-eight.vercel.app/getvideos')
             .then(({ data }) => {
                 setVideos(data.filter((i) => (i?.slug !== slug)))
                 setLoading2(false)
@@ -66,7 +66,7 @@ const VideoDetail = () => {
     }
 
     const handleView = async (id) => {
-        await axios.put(`http://localhost:5000/view/${id}`, { id }, { withCredentials: true })
+        await axios.put(`https://just-play-api-eight.vercel.app/view/${id}`, { id }, { withCredentials: true })
             .then(({ data }) => {
                 setVideos(data)
                 getVideos()
@@ -75,7 +75,7 @@ const VideoDetail = () => {
 
     const likes = async (id) => {
         setlikeLoad(true)
-        await axios.put(`http://localhost:5000/likes/${id}`, {}, { withCredentials: true })
+        await axios.put(`https://just-play-api-eight.vercel.app/likes/${id}`, {}, { withCredentials: true })
             .then(({ data }) => {
                 if (data.error) {
                     toast.error(data.error)
@@ -90,7 +90,7 @@ const VideoDetail = () => {
 
     const dislikes = async (id) => {
         setdislikeLoad(true)
-        await axios.put(`http://localhost:5000/dislikes/${id}`, {}, { withCredentials: true })
+        await axios.put(`https://just-play-api-eight.vercel.app/dislikes/${id}`, {}, { withCredentials: true })
             .then(({ data }) => {
                 if (data.error) {
                     toast.error(data.error)
@@ -105,7 +105,7 @@ const VideoDetail = () => {
 
     const subscribe = async (id) => {
         setLoading(true)
-        await axios.put(`http://localhost:5000/auth/subscribe/${id}`, {}, { withCredentials: true })
+        await axios.put(`https://just-play-api-eight.vercel.app/auth/subscribe/${id}`, {}, { withCredentials: true })
             .then(({ data }) => {
                 if (data.error) {
                     toast.error(data.error)
@@ -121,7 +121,7 @@ const VideoDetail = () => {
 
     const unsubscribe = async (id) => {
         setLoading(true)
-        await axios.put(`http://localhost:5000/auth/unsubscribe/${id}`, {}, { withCredentials: true })
+        await axios.put(`https://just-play-api-eight.vercel.app/auth/unsubscribe/${id}`, {}, { withCredentials: true })
             .then(({ data }) => {
                 if (data.error) {
                     toast.error(data.error)

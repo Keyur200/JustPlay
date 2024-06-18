@@ -17,7 +17,7 @@ const Navbar = ({bar,setBar}) => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const handleLogout = () => {
-        fetch('http://localhost:5000/auth/logout', {
+        fetch('https://just-play-api-eight.vercel.app/auth/logout', {
             method: "POST",
             credentials: "include"
         }).then(res => {

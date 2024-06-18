@@ -7,7 +7,7 @@ const AuthProvider = ({children}) => {
     const [user,setUser] = useState()
 
     useEffect(()=>{
-        axios.get('http://localhost:5000/auth/userdata', {withCredentials:true})
+        axios.get('https://just-play-api-eight.vercel.app/auth/userdata', {withCredentials:true})
         .then(({data})=>{
             setUser(data)
         })

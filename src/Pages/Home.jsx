@@ -14,7 +14,7 @@ const Home = () => {
   const search = useSelector(state => state.search.search)
   const getVideos =  () => {
     setLoading(true)
-     axios.get('http://localhost:5000/getvideos')
+     axios.get('https://just-play-api-eight.vercel.app/getvideos')
       .then(({ data }) => {
         setVideos(data)
         setLoading(false)
@@ -23,7 +23,7 @@ const Home = () => {
   }
 
   const handleView = async (id) => {
-    await axios.put(`http://localhost:5000/view/${id}`, { id }, { withCredentials: true })
+    await axios.put(`https://just-play-api-eight.vercel.app/view/${id}`, { id }, { withCredentials: true })
       .then(({ data }) => {
         setVideos(data)
         getVideos()
