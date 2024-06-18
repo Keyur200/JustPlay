@@ -14,11 +14,10 @@ const Home = () => {
   const search = useSelector(state => state.search.search)
   const getVideos =  () => {
     setLoading(true)
-     axios.get('https://just-play-api-eight.vercel.app/getvideos')
+     axios.get('https://just-play-api-eight.vercel.app/getvideos',{withCredentials:true})
       .then(({ data }) => {
         setVideos(data)
         setLoading(false)
-        console.log(data)
       })
   }
 
