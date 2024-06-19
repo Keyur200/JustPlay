@@ -15,6 +15,7 @@ const CreateVideo = () => {
     const [desc,setDesc] = useState()
     const [bar, setBar] = useState(false)
     const [category,setCategory] = useState()
+    const [loading,setLoading] = useState(false)
 
     const getCategories = async () => {
         axios.get('https://just-play-api-eight.vercel.app/allcategory', { withCredentials: true })
@@ -62,11 +63,12 @@ const CreateVideo = () => {
     const handleVideo = async (e) => {
         e.preventDefault()
         try {
-
+            setLoading(true)
             const thumb = await uploadThumb()
             const video = await uploadVideo()
             const {data} = await axios.post('https://just-play-api-eight.vercel.app/uploadvideo', {title,desc,category,thumb,video}, { headers: {"Content-Type" :"application/json"}, withCredentials:true})
             if(data){
+                setLoading(false)
                 toast.success(`${data?.videos?.title} created.`)
                 navigate('/')
             }
@@ -142,6 +144,9 @@ const CreateVideo = () => {
                             </div>
                         </div>
                         <button type='submit' className='bg-red-500 rounded-lg py-5 text-2xl font-bold'>Upload</button>
+                        {
+                            loading && (<button disabled className='bg-red-300 rounded-lg py-5 text-2xl font-bold'>Loading ... </button> )
+                        }
                     </form>
                 </div>
             </div>
