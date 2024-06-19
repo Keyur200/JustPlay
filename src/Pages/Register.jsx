@@ -10,6 +10,7 @@ const Register = () => {
     const [email, setemail] = useState()
     const [pass, setpass] = useState()
     const [pic, setpic] = useState()
+    const [loading,setLoading] = useState(false)
     const navigate =useNavigate()
 
     const uploadFile = async () => {
@@ -34,11 +35,13 @@ const Register = () => {
         
         e.preventDefault()
         try {
+            setLoading(true)
             const pic = await uploadFile()
             const { data } = await axios.post('https://just-play-api-eight.vercel.app/auth/register', {name,email,pass, pic}, { headers: {"Content-Type" :"application/json"}, withCredentials:true})
             if (data.error) {
                 toast.error(data.error)
             }else{
+                setLoading(false)
                 navigate('/login')
                 toast.success("Registration successfully.")
             }
@@ -83,7 +86,16 @@ const Register = () => {
                         )
                     }
 
-                    <button type='submit' className='bg-red-600 w-[300px] py-4 mt-2 rounded-sm text-xl font-semibold hover:bg-red-700 transition-all duration-300 '>Register</button>
+                    {
+                        !loading && (
+                            <button type='submit' className='bg-red-600 w-[300px] py-4 mt-2 rounded-sm text-xl font-semibold hover:bg-red-700 transition-all duration-300 '>Register</button>
+                        )
+                    }
+                    {
+                        loading && (
+                            <button disabled className='bg-red-300 w-[300px] py-4 mt-2 rounded-sm text-xl font-semibold hover:bg-red-700 transition-all duration-300 '>Loading...</button>
+                        )
+                    }
                     <div className='flex w-full items-center'>
                         <hr className='bg-gray-600 border border-gray-600 w-full' />
                         <span className='mx-3 text-sm'>OR</span>

@@ -159,7 +159,7 @@ const VideoDetail = () => {
                     <div className='w-full lg:w-8/12 '>
                         {
                             loading ? (
-                                <div className='flex items-center justify-center text-center  w-full'><img src="../loader.gif" alt="Loading..." className='w-[150px] h-[150px]' /></div>
+                                <div className='flex items-center justify-center text-center  w-full'><img src="../Loader.gif" alt="Loading..." className='w-[150px] h-[150px]' /></div>
                             ) :
                                 video?.map((v) => (
                                     <div className='px-4 w-full'>
@@ -232,7 +232,7 @@ const VideoDetail = () => {
                         <div className='flex flex-col gap-3'>
                             {
                                 loading2 ? (
-                                    <div className='flex items-center justify-center text-center  w-full'><img src="../loader.gif" alt="Loading..." className='w-[150px] h-[150px]' /></div>
+                                    <div className='flex items-center justify-center text-center  w-full'><img src="../Loader.gif" alt="Loading..." className='w-[150px] h-[150px]' /></div>
                                 ) :
                                     videos?.map((v) => (
                                         <Link to={`/video/${v.slug}`} onClick={() => handleView(v._id)} reloadDocument className='flex gap-2 mt-3 lg:m-0 hover:bg-[#303030] rounded-xl p-2'>

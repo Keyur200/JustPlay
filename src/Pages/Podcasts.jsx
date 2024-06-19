@@ -48,7 +48,7 @@ const Podcasts = () => {
       <div className={`${!bar ? 'w-full px-0 md:px-10' : 'w-[80%]'} w-full px-0 md:px-10  `}>
         {
           loading ? (
-            <div className='flex items-center justify-center text-center  w-full'><img src="../loader.gif" alt="Loading..." className='w-[150px] h-[150px]' /></div>
+            <div className='flex items-center justify-center text-center  w-full'><img src="../Loader.gif" alt="Loading..." className='w-[150px] h-[150px]' /></div>
           ) : (
             <div className={`grid grid-cols-1 md:grid-cols-2 ${!bar ? 'lg:grid-cols-4 ' : 'xl:grid-cols-3'} w-full gap-4`}>
               {

@@ -17,7 +17,6 @@ const ChannelDetails = () => {
         await axios.get(`https://just-play-api-eight.vercel.app/auth/channeldetails/${id}`, { withCredentials: true })
             .then(({ data }) => {
                 setUserdata(data)
-                console.log(data)
             })
     }
 

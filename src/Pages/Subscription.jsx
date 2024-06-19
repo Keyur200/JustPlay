@@ -42,7 +42,7 @@ const Subscription = () => {
           <div className='flex flex-col gap-5'>
             {
               loading ? (
-                <div className='flex items-center justify-center text-center  w-full'><img src="../loader.gif" alt="Loading..." className='w-[150px] h-[150px]' /></div>
+                <div className='flex items-center justify-center text-center  w-full'><img src="../Loader.gif" alt="Loading..." className='w-[150px] h-[150px]' /></div>
               ) :
               userdata?.subscribedUser?.map((v) => (
                 <div className='grid grid-cols-2'>
